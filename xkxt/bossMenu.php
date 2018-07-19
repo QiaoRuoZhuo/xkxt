@@ -11,7 +11,11 @@ include("conn.php");
 </head>
 
 <body>
-
+<?php
+if (isset($_SESSION['SuserType']) && isset($_SESSION['Susername']) && isset($_SESSION['Spassword']) 
+	&& $_SESSION['SuserType'] == 'g' && $_SESSION['Susername'] == '总指挥' && $_SESSION['Spassword'] == '总指挥')//超级管理员登陆
+{
+?>
 <table width="80%" height="80" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
     <td align="center"><a href="addSchool.php" target="_blank">添加学校</a></td>
@@ -74,6 +78,13 @@ include("conn.php");
 		$mysqli->close();
 	
   ?>
+ <?php
+}
+else
+{
+	echo "<h1>系统管理员尚未登录！请登录系统管理员账号！</h1>";
+}
+?>
 </body>
 </html>
 <?php include("bottom.php"); ?>
