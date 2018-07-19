@@ -26,6 +26,9 @@ if(isset($_POST['schoolname']) && isset($_POST['userType']) && isset($_POST['use
 	
 	if ($myusertype=='g' && $myschoolname=='总指挥' && $myusername=='总指挥' && $mypassword=='总指挥')//系统管理员登陆
 	{
+		$_SESSION['Susername'] = $myusername;
+		$_SESSION['Spassword'] = $mypassword;
+		$_SESSION['SuserType'] = $myusertype;
 		echo "<meta http-equiv=\"Refresh\" content=\"1;url=$fur4\">2秒钟后转入页面,请稍等....";
 	}
 	else
